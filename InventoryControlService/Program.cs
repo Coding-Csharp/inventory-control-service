@@ -18,6 +18,10 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
 
+app.UseCors(
+    c => c.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()
+);
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
